@@ -1,0 +1,390 @@
+<!doctype html>
+<html class="no-js" lang="ja">
+  <head>
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>K-folio</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/unplus.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c"
+      rel="stylesheet"
+    />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; 
+               script-src 'self' https://unpkg.com https://cdn.jsdelivr.net 'unsafe-eval' 'unsafe-inline'; 
+               style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+               font-src 'self' https://fonts.gstatic.com;
+               img-src 'self' data:;
+               connect-src 'self' https://cdn.jsdelivr.net;"
+    />
+    <meta name="robots" content="noindex, nofollow" />
+  </head>
+
+  <body class="container">
+    <main id="app" v-cloak>
+      <div id="mouse-stalker" class="mouse-stalker"></div>
+
+      <header>
+        <nav class="navbar">
+          <ul class="nav-list">
+            <li><a href="#top">TOP</a></li>
+            <li><a href="#profile">ABOUT ME</a></li>
+            <li><a href="#portfolio">WORK</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <section id="top">
+        <h1 class="title_logo" data-label="Portfolio">
+          <span
+            v-for="(char, index) in 'K-folio'"
+            :key="index"
+            class="hover-char"
+          >
+            {{ char }}
+          </span>
+        </h1>
+        <p class="site_contents">
+          このサイトはポートフォリオ目的として作られたサイトです。<br />
+          フロントエンドは主にVue.jsとjQuery、HTMLとCSSで作られています。
+        </p>
+      </section>
+
+      <section id="profile" class="fade-in-offset">
+        <h2 class="section_title">
+          <span class="buruburu-hover">P</span>ROFILE
+        </h2>
+        <p>かんたけ かおり</p>
+        <h4>Kantake kaori</h4>
+        <hr class="hr_design" />
+
+        <div class="skill-level-guide">
+          <p class="guide-title">スキルレベルの指標</p>
+          <ul class="level-list">
+            <li>
+              <span class="stars">★★★★★</span
+              ><span class="desc"
+                ><strong>実戦レベル：</strong>
+                実務で即戦力として活用できる。</span
+              >
+            </li>
+            <li>
+              <span class="stars">★★★★☆</span>
+              <span class="desc"
+                ><strong>基礎習得：</strong>
+                ドキュメントを標準的な機能を自力で実装できる。</span
+              >
+            </li>
+            <li>
+              <span class="stars">★★★☆☆</span
+              ><span class="desc">
+                <strong>基礎理解：</strong>
+                基本文法を習得し、簡単なコードなら自力で組み立てられる程度。</span
+              >
+            </li>
+            <li>
+              <span class="stars">★★☆☆☆</span>
+              <span class="desc"
+                ><strong>学習中：</strong>
+                チュートリアルを終えて、仕組みを理解し始めた段階。業務で扱うには難しい</span
+              >
+            </li>
+            <li>
+              <span class="stars">★☆☆☆☆</span>
+              <span class="desc"
+                ><strong>入門：</strong>
+                勉強はじめたて。まずは基礎の定着を目指している（実務にはまだ力不足）。</span
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="skill-horizontal-layout">
+          <div class="skill-set">
+            <div id="js-result--front-end" class="chart-item"></div>
+            <div class="skill-table-container">
+              <table class="skill-table pink-theme">
+                <thead>
+                  <tr>
+                    <th>フロントエンド</th>
+                    <th>レベル</th>
+                    <th>補足</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>HTML</td>
+                    <td><span class="level-stars">★★★★★</span></td>
+                    <td>
+                      10年以上独学で勉強してきたので、基礎理解は出来ています。
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>CSS</td>
+                    <td><span class="level-stars">★★★★★</span></td>
+                    <td>
+                      HTMLと共に10年以上独学で勉強してきたので、基礎理解は出来ています。
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>JavaScript (JS)</td>
+                    <td><span class="level-stars">★★★★☆</span></td>
+                    <td>
+                      HTMLやCSSを学んでいくうちに、動的なサイトを作るために勉強していたら身についていきました。
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>jQuery</td>
+                    <td><span class="level-stars">★★★☆☆</span></td>
+                    <td>
+                      上記ほどではないですが、Vueの存在を知る前まではよく使っていました。
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Vue.js</td>
+                    <td><span class="level-stars">★★★☆☆</span></td>
+                    <td>
+                      Kaienの訓練で学んだフレームワーク。Udemyやこのサイトを通して基礎の理解を深めたと思います。
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="skill-set">
+            <div id="js-result--back-end" class="chart-item"></div>
+            <div class="skill-table-container">
+              <table class="skill-table blue-theme">
+                <thead>
+                  <tr>
+                    <th>バックエンド</th>
+                    <th>レベル</th>
+                    <th>補足</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Python</td>
+                    <td><span class="level-stars">★★★★☆</span></td>
+                    <td>
+                      訓練で最も勉強した言語です。勉強を始めたばかりですが、動かしていくうちに基礎は出来るようになりました。
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Django</td>
+                    <td><span class="level-stars">★★★★☆</span></td>
+                    <td>
+                      成果物を作る際にもっとも使った言語です。基礎理解は出来ています。
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>PHP</td>
+                    <td><span class="level-stars">★★★☆☆</span></td>
+                    <td>以前の業務、Wordpressの管理実務で使用した言語です。</td>
+                  </tr>
+                  <tr>
+                    <td>Node.js</td>
+                    <td><span class="level-stars">★☆☆☆☆</span></td>
+                    <td>
+                      JavaScriptそのものは以前から独学で学び使用していましたが、バックエンド開発でも今後活用していきたいです。
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <p class="about_me"><span class="buruburu-hover">A</span>BOUT ME</p>
+        <p class="about_me_text">
+          フロントエンドとバックエンド、両方の分野を幅広く扱うエンジニアを目指しています。ユーモアのある遊びのあるサイトでも、見ただけでパッとわかるようなシンプルなサイトでも、とにかく作ることが好きです。面白いこと、新しいことに興味があります。エンジニアという世界の中で、皆様と一緒にもっと新しい発見が出来たら嬉しく思います。
+        </p>
+
+        <div class="caution_box">
+          <span class="about_me_caution">【特性の自己管理と配慮事項】</span>
+          <br />
+
+          <div class="caution_item">
+            <strong>■ 発達障害 / ASD（自閉症スペクトラム障害）</strong>
+            <ul>
+              <li>
+                <strong>感覚過敏（聴覚・嗅覚）：</strong
+                >ノイズキャンセリングイヤホンやマスクを着用することで、集中できる環境を作っています。
+              </li>
+              <li>
+                <strong>情報受容の特性：</strong
+                >口頭のみの指示より、テキストでの共有なら業務に支障はありません。また、曖昧な指示が苦手な傾向にあります。
+              </li>
+              <li>
+                <strong>過集中の傾向：</strong
+                >高い集中力を維持できる反面、疲労に気づきにくい傾向があるため、タイマーの活用や定期的な離席を行っています。
+              </li>
+            </ul>
+          </div>
+
+          <div class="caution_item">
+            <strong>■ コミュニケーションについて</strong>
+            <p>
+              私は以下の理由から、主にチャットツールを用いたコミュニケーションを選択しています。
+            </p>
+            <ul>
+              <li>
+                口頭では思考がそのまま言葉として出やすい特性があるため、一度テキストに書き起こして思考を整理し、内容を再確認してから発信するため。
+              </li>
+              <li>
+                オープンな場での突発的な発言による誤解やトラブルを避け、「立ち止まって考える」プロセスを挟むため。
+              </li>
+              <li>
+                ※一対一の質疑応答や、課題が決まっている形式的な対話であれば、口頭でも比較的スムーズなやり取りが可能です。
+              </li>
+            </ul>
+          </div>
+
+          <span class="about_me_caution">【持病について】</span>
+          <br />
+          <div class="caution_item">
+            <strong>■ 喘息</strong>
+            <p>
+              主治医のサポートのもと適切に管理しており、現在は業務に支障ありません。全体的に快復傾向にあります。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="portfolio" class="fade-in-offset">
+        <h2 class="section_title">
+          <span class="buruburu-hover">T</span>HE WORKS
+        </h2>
+        <div class="container">
+          <div class="content-box">
+            <div class="photo">
+              <img
+                src="./image/todolist.png"
+                @click="openModal"
+                style="cursor: pointer"
+              />
+            </div>
+            <div class="text">
+              <p class="todo_title">TODOリスト</p>
+              <p>
+                使用言語：HTML/CSS/Django/Vue.js<br />シンプルなTODOLISTです。優先度や締め切りも設定できます。
+                <br />画像をクリックすると動画が再生されます
+              </p>
+            </div>
+          </div>
+          <div class="content-box fade-in-offset">
+            <div class="photo">
+              <img
+                src="./image/site.jpg"
+                alt="このサイトのスクリーンショット"
+              />
+            </div>
+            <div class="text">
+              <p class="todo_title">K-folio</p>
+              <p>
+                このサイトそのものです。<br />ポートフォリオとして「私」が伝わるようにシンプルな構成をベースに、小さな遊び心を意識しました。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <p>&copy; {{ currentYear }} K-folio</p>
+      </footer>
+
+      <teleport to="body">
+        <div v-if="isModalOpen" class="modal-overlay" @click.self="closeModal">
+          <div class="modal-content">
+            <button class="close-btn" @click="closeModal">&times;</button>
+            <div class="video-container">
+              <video
+                v-if="isModalOpen"
+                :src="currentVideo"
+                controls
+                autoplay
+                muted
+                playsinline
+              ></video>
+            </div>
+          </div>
+        </div>
+      </teleport>
+    </main>
+
+    <script src="https://unpkg.com/vue@3.5.30/dist/vue.global.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+      const renderRadarChart = (element_id, labelList, statusData, color) => {
+        const container = document.getElementById(element_id);
+        if (!container) return;
+        container.innerHTML = "";
+        const canvas = document.createElement("canvas");
+        container.appendChild(canvas);
+
+        return new Chart(canvas, {
+          type: "radar",
+          data: {
+            labels: labelList,
+            datasets: [
+              {
+                label: "STATUS",
+                data: statusData,
+                fill: true,
+                backgroundColor: color
+                  .replace("rgb", "rgba")
+                  .replace(")", ", 0.1)"),
+                borderColor: color,
+                pointBackgroundColor: color,
+              },
+            ],
+          },
+          options: {
+            scales: {
+              r: {
+                pointLabels: {
+                  font: {
+                    size: 22,
+                    weight: "bold",
+                    family: "'M PLUS Rounded 1c', sans-serif",
+                  },
+                  color: "#798896",
+                },
+                ticks: {
+                  stepSize: 1,
+                  font: { size: 15 },
+                  backdropColor: "transparent",
+                },
+                suggestedMin: 0,
+                suggestedMax: 5,
+              },
+            },
+            plugins: {
+              legend: { display: false },
+            },
+          },
+        });
+      };
+
+      window.onload = () => {
+        renderRadarChart(
+          "js-result--front-end",
+          ["HTML", "CSS", "JS", "jQuery", "Vue.js"],
+          [5, 5, 4, 3, 3],
+          "rgb(255, 99, 132)",
+        );
+        renderRadarChart(
+          "js-result--back-end",
+          ["Python", "Django", "PHP", "Node.js"],
+          [4, 4, 3, 2],
+          "rgb(99, 141, 255)",
+        );
+      };
+    </script>
+  </body>
+</html>
