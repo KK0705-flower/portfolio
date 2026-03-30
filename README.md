@@ -1,2 +1,21 @@
-title: k-folio
-description: Bookmark this to keep an eye on my project updates!
+#K-Folio / 個人ポートフォリオ
+
+**Vue.jsとChart.jsを使用した、自己紹介と現状のスキル可視化のためのポートフォリオサイトです。**
+
+## 公開URL
+https://kk0705-flower.github.io/portfolio/
+
+##  主な内容の紹介
+**自己紹介**
+**スキルチャートとスキルレベル**
+**成果物**
+
+##  使用技術
+- **フロントエンド**: HTML Living Standard/CSS3, JavaScript
+- **フレームワーク**: Vue.js-3.5.30
+- **使用ライブラリ**: Chart.js 
+
+##  こだわったポイント
+ほんの少しの遊び心を加えつつ
+"見やすく、解りやすく、パッと見て伝わるように"をコンセプトに制作しました。
+
