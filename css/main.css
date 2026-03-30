@@ -313,6 +313,22 @@ canvas {
     animation: hurueru .3s infinite;
 }
 
+.github-link{
+    text-align: center;
+        font-size: 1rem;
+        color: #455a64;
+}
+
+a.github-link{
+    margin-top: 20px;
+    text-decoration: none;
+}
+
+a.github-link:hover{
+    color: #007BFF;
+
+}
+
 @keyframes hurueru {
 
     0%,
