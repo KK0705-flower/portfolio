@@ -1,0 +1,662 @@
+/* --- 1. Base Styles & Reset --- */
+[v-cloak] {
+    display: none !important;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ---body {
+ font-family: "M PLUS Rounded 1c";
+}--- */
+
+.container {
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* --- 2. Header & Navigation --- */
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    justify-content: flex-end;
+    padding: 20px;
+}
+
+.nav-list li a {
+    text-decoration: none;
+    color: #333;
+    position: relative;
+    padding-bottom: 5px;
+    display: inline-block;
+    transition: 0.3s;
+    color: #455a64;
+}
+.nav-list li a:hover {
+    color: #007BFF;
+    opacity: 0.7;
+}
+
+.nav-list li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #6eaaff;
+    transform: scaleX(0);
+    transform-origin: right top;
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-list li a:hover::after {
+    transform-origin: left top;
+    transform: scaleX(1);
+}
+
+h4{
+    font-size: 3rem;
+    font-weight: lighter;
+}
+
+/* --- 3. Top Section --- */
+#top {
+    background-color: rgb(206, 222, 255);
+    width: 100%;
+    padding-bottom: 40px;
+}
+
+.title_logo {
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 4rem;
+    letter-spacing: 0.5em;
+    text-align: center;
+    padding: 20px;
+    
+}
+
+.title_logo::before {
+    display: block;
+    font-weight: 700;
+    font-size: 1.15rem;
+    line-height: 1.5;
+    letter-spacing: .02em;
+    content: attr(data-label);
+}
+
+.site_contents {
+    text-align: center;
+    font-size: 1rem;
+    color: #455a64;
+}
+
+.hover-char {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    cursor: default;
+}
+
+.hover-char:hover {
+    transform: scale(2.0);
+    color: #ffffff;
+}
+
+/* --- 4. Profile & Skill Layout --- */
+#profile {
+    margin: 0 auto;
+    color: #455a64;
+    max-width: 75%;
+    /* 横並びのために少し広めに確保 */
+    padding-bottom: 50px;
+}
+
+#profile p{
+    line-height: normal;
+}
+
+.hr_design {
+    position: relative;
+    height: 1px;
+    border-width: 0;
+    background-image: -webkit-linear-gradient(left,
+            transparent 0%, #283593 50%, transparent 100%);
+    background-image: linear-gradient(90deg,
+            transparent 0%, #283593 50%, transparent 100%);
+}
+
+.section_title {
+    font-size: 3rem;
+    color: #455a64;
+    padding: 50px;
+    text-align: center;
+    font-weight: 100;
+    letter-spacing: 0.5em;
+}
+
+/* ★ スキル全体のレイアウト（横並び） */
+.skill-horizontal-layout {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+/* ★ 各セット（縦並び） */
+.skill-set {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    max-width: 500px;
+    min-width: 320px;
+}
+
+.chart-item {
+    width: 100%;
+}
+
+canvas {
+    width: 100% !important;
+    height: auto !important;
+}
+
+
+/* --- スキルテーブルのブラッシュアップ --- */
+
+.skill-table {
+    width: 100%;
+    border-collapse: separate;
+    /* 枠線を丸めるために collapse から変更 */
+    border-spacing: 0;
+    table-layout: fixed;
+    /* ★重要：列の幅を固定してガタつきを防ぐ */
+    background-color: #fff;
+    border-radius: 12px;
+    /* 少し丸みを持たせるとモダンになります */
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.skill-table th,
+.skill-table td {
+    padding: 16px 12px;
+    /* 少し上下の余白を広げて視認性アップ */
+    text-align: left;
+    vertical-align: middle;
+    /* 上下中央揃え */
+    word-wrap: break-word;
+    /* 長い単語で枠が壊れないように */
+    font-size: 0.95rem;
+    /* わずかにフォントサイズを調整 */
+}
+
+/* 列ごとの幅を指定（お好みで調整してください） */
+.skill-table th:nth-child(1),
+.skill-table td:nth-child(1) {
+    width: 30%;
+}
+
+/* 言語名 */
+.skill-table th:nth-child(2),
+.skill-table td:nth-child(2) {
+    width: 25%;
+}
+
+/* レベル */
+.skill-table th:nth-child(3),
+.skill-table td:nth-child(3) {
+    width: 45%;
+}
+
+/* 補足 */
+
+.skill-table th {
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+.skill-table td {
+    border-bottom: 1px solid #f0f0f0;
+    line-height: 1.5;
+    color: #555;
+}
+
+.skill-table tr:last-child td {
+    border-bottom: none;
+}
+
+.level-stars {
+    display: inline-block;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
+
+.skill-table td:last-child {
+    font-size: 0.85rem;
+}
+/* テーマ別カラー */
+.pink-theme th {
+    background-color: rgb(255, 99, 132);
+}
+
+.blue-theme th {
+    background-color: rgb(99, 141, 255);
+}
+
+.skill-table td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    color: #444;
+}
+
+.skill-table tr{
+  color: #ffffff;
+}
+
+.level-stars {
+    color: #ffb400;
+    font-weight: bold;
+}
+
+/* Profile テキスト */
+.caution_box {
+    text-align: left;
+    /* 左寄せで見やすく */
+    max-width: 100%;
+    padding: 20px;
+}
+
+.about_me_caution {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.about_me{
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: lighter;
+    letter-spacing: 0.5em;
+    margin: 10px;
+}
+
+.caution_item {
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.caution_item ul {
+    margin-top: 10px;
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+.caution_item li {
+    margin-bottom: 8px;
+}
+
+.caution_item p {
+    margin-top: 5px;
+}
+
+a{
+text-decoration: none; /* 下線を消す */
+    color: rgb(45, 51, 51);       /* 文字色を黒などにする場合 */
+}
+.buruburu-hover:hover {
+    display: inline-block;
+    animation: hurueru .3s infinite;
+}
+
+@keyframes hurueru {
+
+    0%,
+    100% {
+        transform: translate(0px, 0px) rotate(0deg) scale(1.5);
+    }
+
+    25% {
+        transform: translate(2px, 2px) rotate(1deg) scale(1.5);
+    }
+
+    50% {
+        transform: translate(0px, 2px) rotate(1deg) scale(1.5);
+    }
+
+    75% {
+        transform: translate(2px, 0px) rotate(1deg) scale(1.5);
+    }
+}
+
+/* --- 5. Portfolio (Work) Section --- */
+#portfolio .container {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+
+.content-box {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.photo,
+.text {
+    flex: 1;
+}
+
+.photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+.photo img:hover {
+    transform: scale(1.03);
+}
+
+.todo_title {
+    font-size: 1.8rem;
+    font-weight: lighter;
+    margin-bottom: 10px;
+}
+
+/* --- 6. Modal --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 900px;
+    background: #000;
+    border-radius: 12px;
+}
+
+.close-btn {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.video-container video {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+}
+
+/* --- 7. Footer --- */
+footer {
+    background-color: rgb(206, 222, 255);
+    text-align: center;
+    width: 100%;
+    height: 60px;
+    display: grid;
+    place-items: center;
+    color: #ffffff;
+}
+
+
+.fade-in-offset {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+
+
+/* 画面内に入った時に付与するクラス */
+.fade-in-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mouse-stalker {
+    pointer-events: none;
+    /* マウスイベントを透過（これがないとクリックが効かなくなります） */
+    position: fixed;
+    top: -15px;
+    /* サイズの半分をマイナスして中心を合わせる */
+    left: -15px;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(159, 191, 255, 0.9);
+    /* 薄い青色 */
+    border-radius: 50%;
+    z-index: 9999;
+    transition: transform 0.3s ease-out;
+    /* 少し遅れてついてくる演出 */
+    will-change: transform;
+}
+
+.skill-level-guide {
+    background-color: #f8faff;
+    /* 非常に薄い青で少し目立たせる */
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border: 1px solid #e0e7ff;
+}
+
+.guide-title {
+    font-weight: bold;
+    color: #455a64;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.level-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.level-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+.level-list li .stars {
+    color: #ffb400;
+    /* 星の色をゴールドに */
+    font-weight: bold;
+    min-width: 100px;
+    /* 星の幅を揃える */
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.level-list li .desc strong {
+    color: #333;
+}
+
+/* --- 8. Responsive (整理・統合版) --- */
+
+/* [1] タブレット・PC（992px以下）: スキルセクションの折り返し */
+@media (max-width: 992px) {
+    .skill-horizontal-layout {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .skill-set {
+        width: 100%;
+        max-width: 600px;
+    }
+}
+
+/* [2] PCのみ（769px以上）: Workセクションの横並び・交互配置 */
+@media (min-width: 769px) {
+    .content-box {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        gap: 60px;
+    }
+
+    .photo,
+    .text {
+        flex: 1;
+        width: 50%;
+    }
+
+    /* 偶数番目のアイテムを左右反転 */
+    .content-box:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+}
+
+/* [3] スマホ・タブレット（768px以下）: 全体レイアウトの最適化 */
+@media (max-width: 768px) {
+
+    /* ヘッダー */
+    .nav-list {
+        justify-content: center !important;
+        padding: 15px 0;
+        gap: 15px;
+        font-size: 0.85rem;
+    }
+
+    .nav-list li a {
+        font-size: 1.5rem;
+    }
+
+    /* タイトル周り */
+    .title_logo {
+        font-size: 4rem;
+        letter-spacing: 0.2em;
+    }
+
+    .section_title {
+        font-size: 1.8rem;
+        padding: 30px 10px;
+        letter-spacing: 0.2em;
+    }
+
+    h4 {
+        font-size: 1.8rem;
+    }
+
+    /* Workセクション（縦並び強制） */
+    .content-box {
+        flex-direction: column !important;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .photo,
+    .text {
+        width: 100%;
+    }
+
+    /* スキルテーブル（はみ出し防止） */
+    .skill-table {
+        table-layout: auto;
+        min-width: 100%;
+    }
+
+    .skill-table th,
+    .skill-table td {
+        padding: 8px 4px;
+        font-size: 0.75rem;
+        word-break: break-all;
+    }
+
+    /* 列幅の再定義 */
+    .skill-table th:nth-child(1),
+    .skill-table td:nth-child(1) {
+        width: 25%;
+    }
+
+    /* 言語 */
+    .skill-table th:nth-child(2),
+    .skill-table td:nth-child(2) {
+        width: 30%;
+    }
+
+    /* 星 */
+    .skill-table th:nth-child(3),
+    .skill-table td:nth-child(3) {
+        width: 45%;
+    }
+
+    /* 補足 */
+
+    .level-stars {
+        letter-spacing: -1px;
+        font-size: 0.7rem;
+    }
+
+    /* スキルレベル指標（ガイド） */
+    .level-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 15px;
+    }
+
+    .level-list li .stars {
+        margin-bottom: 3px;
+    }
+}
+
+/* [4] 極小スマホ（400px以下）: 最終調整 */
+@media (max-width: 400px) {
+    .nav-list {
+        gap: 10px;
+        font-size: 0.8rem;
+        /* 1.2remから、はみ出さないサイズに修正 */
+    }
+
+    .skill-table th,
+    .skill-table td {
+        font-size: 0.7rem;
+        padding: 6px 2px;
+    }
+}
+@media (prefers-color-scheme: dark) {
+
+    /* このなかにダークモード時のスタイルを記述します */
+    body {
+        background-color: #000;
+    }
+
+    p {
+        color: #fff;
+    }
+}
